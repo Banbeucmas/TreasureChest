@@ -96,13 +96,16 @@ public class TreasureData {
     public void generateTreasure() {
         GeneralData data = new GeneralData();
         String prefix = data.getPrefix();
+        int count = 0;
         for (World w : WorldManage.getWorlds()) {
             WorldManage wM = new WorldManage(w);
             Utils.announce(prefix + " " + Utils.getLanguageString("TreasureLocated")
                     .replaceAll("%spawnLimit%", Integer.toString(data.getChestLimit()))
                     .replaceAll("%world%", w.getName()));
             for (int i = 0; i < data.getChestLimit(); i++) {
-                Location loc = wM.setupChest(i + getTreasureLoc().size());
+                Location loc = wM.setupChest(i + count);
+                System.out.println("Chest limit" + data.getChestLimit());
+                System.out.println(i + count);
 
                 int x = loc.getBlockX();
                 int y = loc.getBlockY();
@@ -115,10 +118,11 @@ public class TreasureData {
                 if(!ChestData.hasChestType(ChestType.HIDDEN)){
                     break;
                 }
-                wM.setupHiddenChest(data.getChestLimit() + i);
+                wM.setupHiddenChest(data.getChestLimit() + i + count);
             }
-        }
 
+            count += data.getChestLimit();
+        }
     }
 
     public void deleteTreasure(Location loc){
