@@ -1,0 +1,25 @@
+main: me.Banbeucmas.TreasureChest
+version: 2.2.3
+name: TreasureChest
+softdepend: [TreasureChestAPI]
+author: Banbeucmas
+
+commands:
+    Treasureadmin:
+        description: Admin commands for the plugin
+        aliases: [tadmin, tad]
+        permission: TreasureChest.Admin
+        default: op
+    treasure:
+        description: Player commands
+        aliases: [tre, tr]
+        permission: TreasureChest.Player
+        default: true
+
+permissions:
+    TreasureChest.Admin:
+        description: Treasure admin command
+        default: op
+    TreasureChest.Player:
+        description: Treasure Player Command
+        default: true

@@ -1,0 +1,87 @@
+#DO NOT TOUCH
+configVersion: 2.0.0
+
+#Prefix for the announcer
+Prefix: "&b&7| &eTreasure&aChest &b&7|"
+
+#Select the language for the plugin
+Locale: en_US
+
+#Delay between every spawn / despawn in seconds
+SpawnDelay: 300
+DespawnDelay: 300
+
+#Chest/Rewards Limit for each world/treasure
+ChestLimit: 2
+RewardLimit: 3
+
+#Hidden Chest Limit for each world (ChestLimit doesn't count HIDDEN treasure)
+HiddenChestLimit: 3
+
+#Limit the area that treasure would appear
+#X/YFrom: Starting point
+#X/YTo: Ending point
+#Note: When there is a negative value from X/Y From, DO NOT PUT X/ZTo value into 0
+#Note 2: The config would ignore the "Example" world, so you don't have to be worry
+#vvv Please include name of the world you want the treasure to appear
+World:
+  Example:
+    XFrom: 0
+    ZFrom: 0
+    XTo: 0
+    ZTo: 0
+
+#Configuration for Chest
+#List of chest provide chance of player getting different tiers of rewards
+#Format as below
+
+Chest:
+#Name of the Chest Tier
+  Example:
+#Type of the Chest
+#Types Avaliable: NORMAL, HIDDEN, UNIQUE, RARE, EPIC, LEGENDARY
+#You can found the treasure type in the plugin download page (Feature area)
+#Chance of getting the tier
+    Type: NORMAL
+    Chance: 20
+#Configuration for Rewards
+#Format as below
+#Type: Type of the reward <Item/Command>
+#
+#
+########## Item Type Format ##########
+#Material: The item type <Required>
+#Amount: The amount of item <Default is 1>
+#Enchantment: The enchantment of the item <Not unsafe enchantment> <Optional>
+#Lore: Lore of the item <Optional>
+#Name: Name of the item <Optional>
+#
+#
+########## Command Type Format ##########
+#Commands: Command execute
+#
+#
+########## General ##########
+#Chance: Chance of getting the item <Must be lower than 100; Default is 20> <Optional>
+#
+#
+    Rewards:
+      '0':
+        Type: Item
+        Material: Diamond_Sword
+        Amount: 1
+        Enchantment:
+        - Damage_All-1
+        Lore:
+        - "&3This is an example sword"
+        Name: "&3Example Sword"
+        Damage: 0
+        Chance: 100
+      '1':
+        Type: Command
+        Commands:
+        - give %player% 264 1
+        Chance: 20
+
+
+
