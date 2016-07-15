@@ -97,6 +97,7 @@ public class TreasureData {
         GeneralData data = new GeneralData();
         String prefix = data.getPrefix();
         int count = 0;
+        int hiddenCount = 0;
         for (World w : WorldManage.getWorlds()) {
             WorldManage wM = new WorldManage(w);
             Utils.announce(prefix + " " + Utils.getLanguageString("TreasureLocated")
@@ -104,8 +105,6 @@ public class TreasureData {
                     .replaceAll("%world%", w.getName()));
             for (int i = 0; i < data.getChestLimit(); i++) {
                 Location loc = wM.setupChest(i + count);
-                System.out.println("Chest limit" + data.getChestLimit());
-                System.out.println(i + count);
 
                 int x = loc.getBlockX();
                 int y = loc.getBlockY();
@@ -118,10 +117,13 @@ public class TreasureData {
                 if(!ChestData.hasChestType(ChestType.HIDDEN)){
                     break;
                 }
-                wM.setupHiddenChest(data.getChestLimit() + i + count);
+
+                //4576 - identifier for Hidden Chest
+                wM.setupHiddenChest(4576 + i + hiddenCount);
             }
 
             count += data.getChestLimit();
+            hiddenCount += data.getHiddenChestLimit();
         }
     }
 
