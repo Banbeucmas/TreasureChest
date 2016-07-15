@@ -6,6 +6,7 @@ import me.Banbeucmas.Utils;
 import org.apache.commons.lang.StringUtils;
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Firework;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -52,8 +53,30 @@ public class PlayerTreasure implements Listener {
                     .replaceAll("%player%", p.getName())
                     .replaceAll("%treasure%", StringUtils.capitalize(chestData.getType().toString().toLowerCase())));
             spawnFirework(b.getLocation());
+
+
+
+            switch (chestData.getType()) {
+                case UNLUCKY:
+                    Random r = new Random();
+                    int chance = r.nextInt(100) + 1;
+                    if(chance > 50){
+                        for(int i = 0; i < 5; i++){
+                            b.getWorld().spawnEntity(b.getLocation(), EntityType.ZOMBIE);
+                            b.getWorld().spawnEntity(b.getLocation(), EntityType.SKELETON);
+                            b.getWorld().spawnEntity(b.getLocation(), EntityType.CREEPER);
+                        }
+                        break;
+                    }
+                    giveRewards(p, chestData);
+                    break;
+
+                default:
+                    giveRewards(p, chestData);
+                    break;
+            }
+
             new PlayerManage(p).addPoint(chestData.getType().getPoint() ,chestData.getType());
-            giveRewards(p, chestData);
             if(new TreasureData().getRegularTreasureAmount() <= 0){
                 new StopTreasure().endState();
             }
