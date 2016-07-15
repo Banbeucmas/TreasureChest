@@ -2,7 +2,6 @@ package me.Banbeucmas.File;
 
 import me.Banbeucmas.TreasureChest;
 import org.bukkit.Bukkit;
-import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -10,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by DELL on 5/19/2016.
+ * Handles the Treasure File
  */
 public class Treasure {
     private TreasureChest pl = TreasureChest.getPlugin();

@@ -11,7 +11,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import java.util.*;
 
 /**
- * Created by DELL on 5/20/2016.
+ * Manage the loot
  */
 public class LootData {
 

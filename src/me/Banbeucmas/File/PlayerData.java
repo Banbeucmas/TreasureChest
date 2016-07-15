@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * Created by DELL on 5/22/2016.
+ * Handles the Player File
  */
 public class PlayerData {
     private TreasureChest pl = TreasureChest.getPlugin();

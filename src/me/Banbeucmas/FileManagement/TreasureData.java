@@ -1,8 +1,6 @@
 package me.Banbeucmas.FileManagement;
 
-import com.mysql.jdbc.Util;
 import me.Banbeucmas.File.Treasure;
-import me.Banbeucmas.TreasureChest;
 import me.Banbeucmas.Utils;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;

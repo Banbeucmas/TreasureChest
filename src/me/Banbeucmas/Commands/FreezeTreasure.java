@@ -2,12 +2,11 @@ package me.Banbeucmas.Commands;
 
 import me.Banbeucmas.Runnable.TreasureCreationRunnable;
 import me.Banbeucmas.TreasureChest;
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.scheduler.BukkitRunnable;
 
 /**
- * Created by DELL on 5/20/2016.
+ * Untested freezing treasure
  */
 public class FreezeTreasure {
     private static boolean freeze = false;

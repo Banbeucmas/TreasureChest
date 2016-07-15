@@ -5,7 +5,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by DELL on 5/20/2016.
+ * AdminCommands
  */
 public class AdminCommands implements CommandExecutor {
     @Override

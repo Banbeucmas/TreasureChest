@@ -12,7 +12,7 @@ import me.Banbeucmas.Runnable.TreasureCreationRunnable;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
- * Created by DELL on 5/19/2016.
+ * Main class of he plugin
  */
 public class TreasureChest extends JavaPlugin{
     private static TreasureChest plugin;

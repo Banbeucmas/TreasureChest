@@ -10,10 +10,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Created by DELL on 5/19/2016.
+ * Manage the world data
  */
 public class WorldManage {
     private TreasureChest pl = TreasureChest.getPlugin();

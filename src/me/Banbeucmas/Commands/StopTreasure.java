@@ -4,11 +4,10 @@ import me.Banbeucmas.FileManagement.GeneralData;
 import me.Banbeucmas.FileManagement.TreasureData;
 import me.Banbeucmas.Runnable.TreasureCreationRunnable;
 import me.Banbeucmas.Utils;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by DELL on 5/20/2016.
+ * Function to stop treasure
  */
 public class StopTreasure {
     private GeneralData data = new GeneralData();

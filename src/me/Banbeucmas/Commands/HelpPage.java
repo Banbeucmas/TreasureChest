@@ -6,7 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by DELL on 5/21/2016.
+ * Help page
  */
 public class HelpPage {
     private CommandSender s;

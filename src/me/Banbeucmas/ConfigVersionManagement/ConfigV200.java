@@ -6,7 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.Arrays;
 
 /**
- * Created by DELL on 6/24/2016.
+ * Updating config into 2.0.0
  */
 public class ConfigV200 {
     private TreasureChest pl = TreasureChest.getPlugin();

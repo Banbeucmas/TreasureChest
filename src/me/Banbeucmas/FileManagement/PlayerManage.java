@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Created by DELL on 5/22/2016.
+ * Manage Player Data
  */
 public class PlayerManage {
     private PlayerData pData = new PlayerData();

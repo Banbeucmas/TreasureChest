@@ -6,7 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by DELL on 5/20/2016.
+ * Reload the config
  */
 public class ConfigReload {
     private CommandSender s;

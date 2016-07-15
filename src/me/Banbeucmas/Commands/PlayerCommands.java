@@ -12,7 +12,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
 /**
- * Created by DELL on 5/21/2016.
+ * Commands used by players
  */
 public class PlayerCommands implements CommandExecutor{
     private String prefix = new GeneralData().getPrefix();

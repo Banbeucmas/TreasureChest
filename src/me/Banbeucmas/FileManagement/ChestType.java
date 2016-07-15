@@ -1,7 +1,7 @@
 package me.Banbeucmas.FileManagement;
 
 /**
- * Created by DELL on 6/24/2016.
+ * Chest Type enums
  */
 public enum ChestType {
     NORMAL(1),

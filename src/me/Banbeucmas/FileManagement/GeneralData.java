@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by DELL on 5/19/2016.
+ * Manage others config data
  */
 public class GeneralData {
     private TreasureChest pl = TreasureChest.getPlugin();
