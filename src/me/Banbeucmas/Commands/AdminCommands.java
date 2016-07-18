@@ -1,5 +1,6 @@
 package me.Banbeucmas.Commands;
 
+import me.Banbeucmas.GUI.AdminGUI;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -24,6 +25,8 @@ public class AdminCommands implements CommandExecutor {
                     new ConfigReload(s).reloadConfig();
                 } else if (args[0].equalsIgnoreCase("help")) {
                     new HelpPage(s).showAdminPage();
+                } else if (args[0].equalsIgnoreCase("config")){
+                    new GUICommand(s).openAdminGUI();
                 }
             }
         }
