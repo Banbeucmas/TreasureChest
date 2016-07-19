@@ -2,7 +2,7 @@
 configVersion: 2.0.0
 
 #Prefix for the announcer
-Prefix: "&b&7| &eTreasure&aChest &b&7|"
+Prefix: "&7[&eTreasure&aChest&7]"
 
 #Select the language for the plugin
 Locale: en_US

@@ -13,7 +13,7 @@ public class HelpPage {
     private String prefix = new GeneralData().getPrefix();
     public HelpPage(CommandSender s) {
         this.s = s;
-        s.sendMessage(ChatColor.YELLOW + "========" + prefix + ChatColor.YELLOW + "========");
+        s.sendMessage(ChatColor.GRAY + "" + ChatColor.STRIKETHROUGH + "--------" + prefix + ChatColor.GRAY + "" + ChatColor.STRIKETHROUGH + "--------");
     }
 
     public void showAdminPage(){

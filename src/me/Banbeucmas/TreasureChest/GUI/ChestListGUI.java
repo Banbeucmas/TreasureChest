@@ -49,13 +49,13 @@ public class ChestListGUI {
     public Inventory getInventory(){
         Inventory inv = Bukkit.createInventory(null, 54, ChatColor.YELLOW + "Treasure Chest Config");
         int counter = 0;
-        int size = getChestItemDisplayMap().size();
+        int size = 44;
 
         for(ItemStack item : getChestItemDisplayMap().keySet()){
             if(counter >= size){
                 break;
             }
-            inv.setItem(0, item);
+            inv.setItem(counter, item);
             counter++;
         }
 

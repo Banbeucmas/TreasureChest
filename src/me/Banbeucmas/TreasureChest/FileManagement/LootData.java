@@ -24,6 +24,11 @@ public class LootData {
         return l;
     }
 
+    public static void clearRewards(String chest){
+            TreasureChest.getPlugin().getConfig().set("Chest." + chest + ".Rewards", null);
+            TreasureChest.getPlugin().saveConfig();
+    }
+
     private String id;
     private String chest;
     private String path;
@@ -35,6 +40,42 @@ public class LootData {
         this.chest = chest;
         path = "Chest." + chest + ".Rewards." + id;
     }
+
+    public void setItem(ItemStack item){
+        /*
+        * TODO: Fix meta.getDisplayName().equals(ChatColor.BLUE + "Command") throws NPE
+        * TODO: Adding if(!item.hasItemMeta))
+        *
+        */
+        if(!config.isSet(path)){
+            if(item.hasItemMeta()){
+                ItemMeta meta = item.getItemMeta();
+                if(meta.getDisplayName().equals(ChatColor.BLUE + "Command")
+                        || meta.getDisplayName().equals("Command")){
+                    config.set(path + ".Type", "Command");
+                    config.set(path + ".Commands", meta.getLore());
+                }
+                else{
+                    config.set(path + ".Type", "Item");
+                    config.set(path + ".Material", item.getType().toString());
+                    config.set(path + ".Amount", item.getAmount());
+                    if(item.getEnchantments() != null || !item.getEnchantments().isEmpty()){
+                        Map<Enchantment, Integer> map = item.getEnchantments();
+                        List<String> enchStringList = new ArrayList<>();
+                        for(Enchantment ench : map.keySet()){
+                            enchStringList.add(ench.getName()+ "-" +map.get(ench));
+                        }
+
+                        config.set(path + ".Enchantment", enchStringList);
+                    }
+                    config.set(path + ".Lore", meta.getLore());
+                }
+            }
+        }
+
+        pl.saveConfig();
+    }
+
     public boolean isCommand(){
         if(config.isSet(path + ".Type")){
             String type = config.getString(path + ".Type");
