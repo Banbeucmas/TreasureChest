@@ -1,4 +1,4 @@
-main: me.Banbeucmas.TreasureChest
+main: me.Banbeucmas.TreasureChest.TreasureChest
 version: 2.3.0
 name: TreasureChest
 softdepend: [TreasureChestAPI]
