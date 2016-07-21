@@ -1,5 +1,5 @@
 main: me.Banbeucmas.TreasureChest.TreasureChest
-version: 2.3.0
+version: 2.4.1
 name: TreasureChest
 softdepend: [TreasureChestAPI]
 author: Banbeucmas

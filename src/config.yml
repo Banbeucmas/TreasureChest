@@ -1,5 +1,5 @@
 #DO NOT TOUCH
-configVersion: 2.0.0
+configVersion: 2.0.1
 
 #Prefix for the announcer
 Prefix: "&7[&eTreasure&aChest&7]"
@@ -17,6 +17,11 @@ RewardLimit: 3
 
 #Hidden Chest Limit for each world (ChestLimit doesn't count HIDDEN treasure)
 HiddenChestLimit: 3
+
+#Option to enable - disable scoreboard (Disable will improve performance)
+#Enable = true
+#Disable = false
+EnableScoreboard: true
 
 #Limit the area that treasure would appear
 #X/YFrom: Starting point

@@ -30,9 +30,11 @@ public class RewardListGUI {
         ItemStack item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 14);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(ChatColor.RED + "Edit Items");
-        meta.setLore(Arrays.asList(ChatColor.GRAY + "Edit the items by dragging the items above into your inventory",
+        meta.setLore(Arrays.asList(ChatColor.GRAY + "Edit the items by dragging",
+                ChatColor.GRAY + "the items above into your inventory",
                 ChatColor.GRAY + "You will need to config the item chance manually",
-                ChatColor.GRAY + "You can see the example of adding chance on config.yml of the plugin download page"));
+                ChatColor.GRAY + "You can see the example of adding chance ",
+                ChatColor.GRAY + "on the config.yml of the plugin download page"));
 
         item.setItemMeta(meta);
         return item;
@@ -62,6 +64,7 @@ public class RewardListGUI {
             if(count >= size){
                 break;
             }
+
             ItemStack item = new ItemStack(Material.NAME_TAG);
             if(loot.isCommand()){
                 ItemMeta meta = item.getItemMeta();
@@ -69,9 +72,10 @@ public class RewardListGUI {
                 meta.setLore(loot.getCommands());
 
                 item.setItemMeta(meta);
+                item = getRewardItem(item, loot);
             }
             else{
-                item = loot.getItemReward();
+                item = getRewardItem(loot.getItemReward(), loot);
             }
 
             inv.setItem(count, item);
@@ -79,6 +83,20 @@ public class RewardListGUI {
         }
 
         return inv;
+    }
+
+    private ItemStack getRewardItem(ItemStack item, LootData loot){
+        ItemMeta meta = item.getItemMeta();
+        List<String> lore = new ArrayList<>();
+        if(meta != null && meta.getLore() != null){
+            lore = meta.getLore();
+        }
+
+        lore.add(ChatColor.GRAY + "Chance: " + loot.getChance());
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+        return item;
     }
 
 }

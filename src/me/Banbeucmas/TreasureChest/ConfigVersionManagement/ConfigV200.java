@@ -39,4 +39,12 @@ public class ConfigV200 {
         }
     }
 
+    public void V201Update(){
+        if (!config.isSet("EnableScoreboard")){
+            config.set("EnableScoreboard", false);
+            config.set("configVersion", "2.0.1");
+        }
+        pl.saveConfig();
+    }
+
 }

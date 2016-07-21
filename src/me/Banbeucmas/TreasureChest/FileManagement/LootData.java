@@ -18,6 +18,9 @@ public class LootData {
 
     public static List<LootData> getLootData(String chest){
         List<LootData> l = new ArrayList<>();
+        if(!TreasureChest.getPlugin().getConfig().isSet("Chest." + chest + ".Rewards")){
+            return l;
+        }
        for(String id : TreasureChest.getPlugin().getConfig().getConfigurationSection("Chest." + chest + ".Rewards").getKeys(false)){
             l.add(new LootData(chest, id));
         }
@@ -42,20 +45,24 @@ public class LootData {
     }
 
     public void setItem(ItemStack item){
-        /*
-        * TODO: Fix meta.getDisplayName().equals(ChatColor.BLUE + "Command") throws NPE
-        * TODO: Adding if(!item.hasItemMeta))
-        *
-        */
         if(!config.isSet(path)){
-            if(item.hasItemMeta()){
-                ItemMeta meta = item.getItemMeta();
-                if(meta.getDisplayName().equals(ChatColor.BLUE + "Command")
-                        || meta.getDisplayName().equals("Command")){
-                    config.set(path + ".Type", "Command");
-                    config.set(path + ".Commands", meta.getLore());
+            ItemMeta meta = item.getItemMeta();
+            if(item.hasItemMeta() || meta != null){
+
+                if(meta.getDisplayName() != null){
+
+                    if(meta.getDisplayName().equals(ChatColor.AQUA + "Command") || meta.getDisplayName().equals("Command")) {
+                        config.set(path + ".Type", "Command");
+                        List<String> cmdList = setChanceMeta(meta);
+                        config.set(path + ".Commands", cmdList);
+
+                        pl.saveConfig();
+                        return;
+                    }
+                    else{
+                        config.set(path + ".Name", meta.getDisplayName());
+                    }
                 }
-                else{
                     config.set(path + ".Type", "Item");
                     config.set(path + ".Material", item.getType().toString());
                     config.set(path + ".Amount", item.getAmount());
@@ -68,12 +75,31 @@ public class LootData {
 
                         config.set(path + ".Enchantment", enchStringList);
                     }
-                    config.set(path + ".Lore", meta.getLore());
-                }
+
+                    List<String> l = setChanceMeta(meta);
+                    config.set(path + ".Lore", l);
+                    config.set(path + ".Damage", item.getDurability());
             }
         }
 
         pl.saveConfig();
+    }
+
+    private List<String> setChanceMeta(ItemMeta meta){
+        List<String> l = new ArrayList<>();
+        if(meta.getLore() != null || meta.hasLore()){
+            l = meta.getLore();
+            String chance = l.get(meta.getLore().size() - 1);
+            if(chance.contains(ChatColor.GRAY + "Chance:")){
+                String[] sChance = chance.split(": ");
+                int c = Integer.parseInt(sChance[1]);
+                config.set(path + ".Chance", c);
+                pl.saveConfig();
+
+                l.remove(meta.getLore().size() - 1);
+            }
+        }
+        return l;
     }
 
     public boolean isCommand(){

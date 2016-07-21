@@ -17,7 +17,7 @@ import org.bukkit.plugin.java.JavaPlugin;
  */
 public class TreasureChest extends JavaPlugin{
     private static TreasureChest plugin;
-    private static String configVersion = "2.0.0";
+    private static String configVersion = "2.0.1";
 
     @Override
     public void onEnable(){
@@ -53,7 +53,7 @@ public class TreasureChest extends JavaPlugin{
 
     private void configManager(){
         if(configVersion != new GeneralData().getConfigVersion()){
-            new ConfigV200();
+            new ConfigV200().V201Update();
         }
     }
 }

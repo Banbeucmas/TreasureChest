@@ -76,6 +76,13 @@ public class ChestData {
         return ChestType.valueOf(config.getString("Chest." + chest + ".Type").toUpperCase());
     }
 
+    public void setType(ChestType type){
+        config.set("Chest." + chest + ".Type", type.toString());
+        pl.saveConfig();
+    }
 
-
+    public void setChance(int chance) {
+        config.set("Chest." + chest + ".Chance", chance);
+        pl.saveConfig();
+    }
 }

@@ -16,6 +16,8 @@ import java.util.Arrays;
  */
 public class ChestDataGUI {
 
+    //TODO: Create getBack() ItemStack method
+
     private ChestData data;
 
     public ChestDataGUI(ChestData data) {
@@ -63,7 +65,7 @@ public class ChestDataGUI {
     }
 
     public Inventory getInventory(){
-        Inventory inv = Bukkit.createInventory(null, 9, ChatColor.YELLOW + "Treasure Chest Config");
+        Inventory inv = Bukkit.createInventory(null, 27, ChatColor.YELLOW + "Treasure Chest Config");
         inv.setItem(0, rewardListItem());
         inv.setItem(4, chanceItem());
         inv.setItem(8, chestTypeItem());

@@ -46,8 +46,13 @@ public class PlayerCommands implements CommandExecutor{
                     }
                 }
                 else if(args[0].equalsIgnoreCase("Scoreboard") || args[0].equalsIgnoreCase("sb")){
-                    s.sendMessage(prefix + " " + Utils.getLanguageString("TreasureTopTen"));
-                    new Scoreboard().show(s);
+                    if(!new GeneralData().getScoreboardState()){
+                        s.sendMessage(prefix + " " + Utils.getLanguageString("ScoreboardIsNotAvaliable"));
+                    }
+                    else{
+                        s.sendMessage(prefix + " " + Utils.getLanguageString("TreasureTopTen"));
+                        new Scoreboard().show(s);
+                    }
                 }
             }
         }

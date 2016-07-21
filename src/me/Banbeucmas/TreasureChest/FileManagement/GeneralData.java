@@ -13,6 +13,8 @@ import java.util.Properties;
  * Manage others config data
  */
 public class GeneralData {
+    //TODO: Add Toggle Option for Scoreboard
+
     private TreasureChest pl = TreasureChest.getPlugin();
     private FileConfiguration config = pl.getConfig();
 
@@ -39,6 +41,10 @@ public class GeneralData {
     }
 
     public String getConfigVersion(){ return config.getString("configVersion");}
+
+    public boolean getScoreboardState(){
+        return config.getBoolean("EnableScoreboard");
+    }
 
     public Properties getLocale(){
         Properties p = new Properties();
